@@ -1,0 +1,201 @@
+[gd_scene load_steps=33 format=3 uid="uid://cuot2qapu8vkp"]
+
+[ext_resource type="Script" uid="uid://bye5chht2hwd8" path="res://player.gd" id="1_hs5vj"]
+[ext_resource type="Texture2D" uid="uid://bin1wy2hvwly" path="res://art/car_game/red car.png" id="2_x7jrk"]
+[ext_resource type="Texture2D" uid="uid://1kyex228ueuo" path="res://art/car_game/speed_boost/boost_1.png" id="3_lbgpb"]
+[ext_resource type="Texture2D" uid="uid://cjum8hg8gegyh" path="res://art/car_game/drift_left/drift_left_1.png" id="3_tnf04"]
+[ext_resource type="AudioStream" uid="uid://b5mvici2fubf5" path="res://sounds/tire1.mp3" id="4_4phwq"]
+[ext_resource type="Texture2D" uid="uid://ntyqmq5r8yrn" path="res://art/car_game/speed_boost/boost_2.png" id="4_5xjyk"]
+[ext_resource type="Texture2D" uid="uid://kojdwkvrkf7l" path="res://art/car_game/drift_left/drift_left_2.png" id="4_f3s2d"]
+[ext_resource type="Texture2D" uid="uid://dl5hxgmpmx0wp" path="res://art/car_game/drift_left/drift_left_3.png" id="5_3iq1q"]
+[ext_resource type="Texture2D" uid="uid://bk1knyuuvyk2n" path="res://art/car_game/speed_boost/boost_3.png" id="5_3m3tx"]
+[ext_resource type="AudioStream" uid="uid://bqirkmdlh8w74" path="res://sounds/tire2.mp3" id="5_qxri4"]
+[ext_resource type="Texture2D" uid="uid://c20l6esbsppr0" path="res://art/car_game/speed_boost/boost_4.png" id="6_376lq"]
+[ext_resource type="Texture2D" uid="uid://ch7uevp0stsa1" path="res://art/car_game/drift_left/drift_left_4.png" id="6_lyc4o"]
+[ext_resource type="AudioStream" uid="uid://c6aln34qowwj1" path="res://sounds/Truck sounds/Engine sounds/3000rpm.mp3" id="6_ri1o5"]
+[ext_resource type="Texture2D" uid="uid://my1uepx3qw4r" path="res://art/car_game/speed_boost/boost_5.png" id="7_b8cv4"]
+[ext_resource type="Texture2D" uid="uid://dsct773qbs7ss" path="res://art/car_game/drift_left/drift_left_5.png" id="7_mhphn"]
+[ext_resource type="Texture2D" uid="uid://bckrpbtu6u5ga" path="res://art/car_game/speed_boost/boost_6.png" id="8_tnf04"]
+[ext_resource type="Texture2D" uid="uid://dx4wgpyp1ya8g" path="res://art/car_game/drift_right/drift_right_1.png" id="8_ts6lj"]
+[ext_resource type="Texture2D" uid="uid://bxa0ug1npsu1t" path="res://art/car_game/speed_boost/boost_7.png" id="9_f3s2d"]
+[ext_resource type="Texture2D" uid="uid://b7meujo5do7uo" path="res://art/car_game/drift_right/drift_right_2.png" id="9_pywd7"]
+[ext_resource type="Texture2D" uid="uid://crby2avvs02kl" path="res://art/car_game/speed_boost/boost_8.png" id="10_3iq1q"]
+[ext_resource type="Texture2D" uid="uid://qj8bd6pbgkgr" path="res://art/car_game/drift_right/drift_right_3.png" id="10_0708p"]
+[ext_resource type="Texture2D" uid="uid://csljebu1nqc1p" path="res://art/car_game/drift_right/drift_right_4.png" id="11_4tudg"]
+[ext_resource type="Texture2D" uid="uid://ccaad7ahss1n5" path="res://art/car_game/speed_boost/boost_9.png" id="11_lyc4o"]
+[ext_resource type="Texture2D" uid="uid://ifgcg5vtgwot" path="res://art/car_game/drift_right/drift_right_5.png" id="12_3bq0k"]
+[ext_resource type="Texture2D" uid="uid://byt5rveun4ill" path="res://art/car_game/speed_boost/boost_10.png" id="12_mhphn"]
+[ext_resource type="Texture2D" uid="uid://0pdula8qxtxl" path="res://art/car_game/speed_boost/boost_11.png" id="13_ts6lj"]
+[ext_resource type="Texture2D" uid="uid://cf453ms71m71b" path="res://art/car_game/speed_boost/boost_12.png" id="14_pywd7"]
+[ext_resource type="AudioStream" uid="uid://mupynqnmfsii" path="res://sounds/speed_boost_sfx.wav" id="18_lbgpb"]
+[ext_resource type="AudioStream" uid="uid://p54atg31s2nr" path="res://sounds/hit_wall.mp3" id="29_pywd7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5k12k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x7jrk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tnf04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_f3s2d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3iq1q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lyc4o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mhphn")
+}],
+"loop": true,
+"name": &"drift_left",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ts6lj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_pywd7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_0708p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4tudg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_3bq0k")
+}],
+"loop": true,
+"name": &"drift_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_lbgpb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5xjyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3m3tx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_376lq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b8cv4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_tnf04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_f3s2d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_3iq1q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_lyc4o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_mhphn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ts6lj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_pywd7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_x7jrk")
+}],
+"loop": false,
+"name": &"speed_boost",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3bvsw"]
+size = Vector2(102.66667, 43.333336)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pywd7"]
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_hs5vj")
+low_speed = 100.0
+med_speed = 500.0
+max_speed = 1000.0
+turn_speed = 1.8
+low_acc_rate = 1.02
+med_acc_rate = 1.04
+max_acc_rate = 1.08
+deceleration_rate = 0.999
+reg_traction = 12.0
+drift_traction = 1.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 1.5707964
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_5k12k")
+animation = &"drift_right"
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(44.666668, -0.33333325)
+shape = SubResource("RectangleShape2D_3bvsw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(116, 0)
+zoom = Vector2(0.8, 0.8)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="engine" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(76.66667, -10)
+stream = ExtResource("6_ri1o5")
+volume_db = -15.0
+pitch_scale = 0.7
+autoplay = true
+parameters/looping = true
+
+[node name="drift_2" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(72.66667, 0)
+stream = ExtResource("4_4phwq")
+volume_db = -6.0
+
+[node name="drift_1" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(82.666664, 1.3333334)
+stream = ExtResource("5_qxri4")
+volume_db = -6.0
+
+[node name="boost" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(82.66667, 0)
+stream = ExtResource("18_lbgpb")
+volume_db = -3.0
+
+[node name="hit_wall" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(14, 2)
+stream = ExtResource("29_pywd7")
+volume_db = 5.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = -10.666666
+offset_top = 74.0
+offset_right = 109.333336
+offset_bottom = 97.0
+text = "Space to return"
+label_settings = SubResource("LabelSettings_pywd7")

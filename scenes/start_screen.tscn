@@ -1,0 +1,101 @@
+[gd_scene load_steps=10 format=3 uid="uid://o407y0l2g2xt"]
+
+[ext_resource type="Script" uid="uid://dbv5jatuecrsq" path="res://start.gd" id="1_k1na2"]
+[ext_resource type="FontFile" uid="uid://sb73fnw2il8g" path="res://art/text/B-Boy.otf" id="2_afy8x"]
+[ext_resource type="VideoStream" uid="uid://de5lmegy2kupd" path="res://video/title_screen.ogv" id="3_l67vj"]
+[ext_resource type="AudioStream" uid="uid://cl638dclm8yq1" path="res://sounds/woomp3.mp3" id="5_l67vj"]
+[ext_resource type="AudioStream" uid="uid://mupynqnmfsii" path="res://sounds/speed_boost_sfx.wav" id="5_vdywr"]
+[ext_resource type="PackedScene" uid="uid://bbes6ljxo022t" path="res://fade.tscn" id="6_cdgt5"]
+[ext_resource type="AudioStream" uid="uid://cssik3j7wbf4" path="res://sounds/ui sfx/select_button.mp3" id="7_l67vj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k1na2"]
+font = ExtResource("2_afy8x")
+font_size = 162
+outline_size = 17
+outline_color = Color(0.009266957, 0.011490077, 0.0015555543, 1)
+shadow_size = 50
+shadow_color = Color(0.827451, 0, 0, 0.9490196)
+
+[sub_resource type="LabelSettings" id="LabelSettings_afy8x"]
+font = ExtResource("2_afy8x")
+font_size = 45
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 32
+shadow_color = Color(1, 0.050000012, 0.050000012, 1)
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k1na2")
+
+[node name="Fade" parent="." instance=ExtResource("6_cdgt5")]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("3_l67vj")
+autoplay = true
+expand = true
+loop = true
+
+[node name="CenterContainer" type="CenterContainer" parent="VideoStreamPlayer"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -192.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VideoStreamPlayer/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="VideoStreamPlayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Speed 
+DRIFT"
+label_settings = SubResource("LabelSettings_k1na2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VideoStreamPlayer/CenterContainer/VBoxContainer"]
+stream = ExtResource("5_l67vj")
+volume_db = -14.0
+autoplay = true
+
+[node name="CenterContainer2" type="CenterContainer" parent="VideoStreamPlayer"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 170.0
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="press to play" type="Label" parent="VideoStreamPlayer/CenterContainer2"]
+layout_mode = 2
+text = "PRESS SHIFT"
+label_settings = SubResource("LabelSettings_afy8x")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="start_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_vdywr")
+volume_db = -8.0
+
+[node name="select_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_l67vj")

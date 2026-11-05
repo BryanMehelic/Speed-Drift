@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://brtkfmxt57dil"]
+
+[ext_resource type="PackedScene" uid="uid://cuot2qapu8vkp" path="res://char.tscn" id="1_2mqh0"]
+[ext_resource type="Texture2D" uid="uid://t16do3bghw24" path="res://art/road/track_1.png" id="1_eq3jx"]
+[ext_resource type="Script" uid="uid://cy5xfgbb6c5lq" path="res://track_1.gd" id="1_qev2u"]
+[ext_resource type="AudioStream" uid="uid://cl638dclm8yq1" path="res://sounds/woomp3.mp3" id="5_tbw6d"]
+[ext_resource type="PackedScene" uid="uid://bbes6ljxo022t" path="res://fade.tscn" id="6_hbv61"]
+[ext_resource type="AudioStream" uid="uid://deuk3fyjwsji0" path="res://sounds/chieuk-coin-257878.mp3" id="7_hbv61"]
+[ext_resource type="PackedScene" uid="uid://cyc76xgj8w6wx" path="res://coin.tscn" id="14_l76qv"]
+[ext_resource type="PackedScene" uid="uid://bnorhas7oe1nt" path="res://timer.tscn" id="14_s2sj3"]
+
+[node name="level-root" type="Node2D"]
+script = ExtResource("1_qev2u")
+
+[node name="map" type="Area2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="map"]
+show_behind_parent = true
+position = Vector2(1787, -238)
+scale = Vector2(8, 6.159)
+texture = ExtResource("1_eq3jx")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="map"]
+
+[node name="InsideTrack" type="CollisionPolygon2D" parent="map/StaticBody2D"]
+position = Vector2(2022, -69)
+build_mode = 1
+polygon = PackedVector2Array(26, 161, 293, 117, 557, 117, 757, 142, 1125, 208, 1323, 363, 1548.5408, 483.32202, 1739, 773, 1855, 840, 1989, 1042, 2190, 1215, 2302, 1330, 2534, 1354, 2645, 1107, 2679, 960, 2687, 229, 2650, -1337, 2571, -1429, 2361, -1531, 2002, -1643, 314, -1681, 114, -1381, -41, -1255, -722, -1013, -1214, -934, -1670, -925, -2681, -1301, -3140, -1473, -4076, -1485, -4285, -1155, -4289, -942, -3746, -453, -3641, -457, -2576, -48, -2292, 36, -1841, 253, -1745, 457, -1565, 591, -1427, 716, -1252, 792, -717, 821, -433, 666, -312, 541, -137, 336, -112, 240)
+
+[node name="OutsideTrack" type="CollisionPolygon2D" parent="map/StaticBody2D"]
+build_mode = 1
+polygon = PackedVector2Array(-2473, -179, -2817, -589, -2918, -804, -2878, -1477, -2844, -1652, -2656, -1888, -2169, -1985, -1670, -2028, -912, -2028, -673, -2039, -305, -1779, -67, -1617, 161, -1563, 356, -1476, 876, -1476, 1342, -1660, 1472, -1953, 1613, -2180, 1017, -2418, -4939, -2771, -3982, 2643, 8236, 1503, 5186, -2679, 1611, -2180, 3745, -2148, 4710, -2104, 5197, -1909, 5326, -1722, 5365, 284, 5444, 507, 5413, 1117, 5171, 1608, 4761, 1716, 3846, 1696, 3495, 1557, 3017, 642, 2754, 528, 2358, 514, 1974, 831, 1685, 1039, 1387, 1154, 580, 1167, 191, 1058, -163, 745, -405, 684, -617, 558, -1224, 300, -1734, 73)
+
+[node name="Node2D" parent="." instance=ExtResource("1_2mqh0")]
+position = Vector2(855, 1056)
+
+[node name="coins" type="Area2D" parent="."]
+
+[node name="coin1" parent="coins" instance=ExtResource("14_l76qv")]
+position = Vector2(4672, 1456)
+
+[node name="coin2" parent="coins" instance=ExtResource("14_l76qv")]
+position = Vector2(3157, 648)
+
+[node name="coin3" parent="coins" instance=ExtResource("14_l76qv")]
+position = Vector2(4805, 1304)
+
+[node name="coin4" parent="coins" instance=ExtResource("14_l76qv")]
+position = Vector2(-1589, -371)
+
+[node name="coin5" parent="coins" instance=ExtResource("14_l76qv")]
+position = Vector2(-2592, -1144)
+
+[node name="coin6" parent="coins" instance=ExtResource("14_l76qv")]
+position = Vector2(-2444, -1153)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("14_s2sj3")]
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_tbw6d")
+volume_db = -14.0
+autoplay = true
+
+[node name="Fade" parent="." instance=ExtResource("6_hbv61")]
+
+[node name="coin_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_hbv61")
+volume_db = -4.0

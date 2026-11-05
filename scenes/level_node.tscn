@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://ce6up3emhd4oi"]
+
+[ext_resource type="Script" uid="uid://blg57yrvso1er" path="res://level_select.gd" id="1_08krd"]
+[ext_resource type="PackedScene" uid="uid://bbes6ljxo022t" path="res://fade.tscn" id="2_a6x8p"]
+[ext_resource type="AudioStream" uid="uid://mupynqnmfsii" path="res://sounds/speed_boost_sfx.wav" id="3_xforg"]
+[ext_resource type="AudioStream" uid="uid://cssik3j7wbf4" path="res://sounds/ui sfx/select_button.mp3" id="4_lfghx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2bhw"]
+size = Vector2(155, 112)
+
+[sub_resource type="LabelSettings" id="LabelSettings_08krd"]
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_08krd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(67.5, 46)
+shape = SubResource("RectangleShape2D_w2bhw")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 16.0
+offset_top = -84.0
+offset_right = 118.0
+offset_bottom = -9.0
+text = "Best time:
+
+Space to play"
+label_settings = SubResource("LabelSettings_08krd")
+
+[node name="Fade" parent="." instance=ExtResource("2_a6x8p")]
+
+[node name="start_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xforg")
+
+[node name="select_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_lfghx")

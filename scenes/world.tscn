@@ -1,0 +1,54 @@
+[gd_scene load_steps=12 format=3 uid="uid://dnk8nlp8intpk"]
+
+[ext_resource type="Script" uid="uid://drje0088vyd6n" path="res://world.gd" id="1_fj7yv"]
+[ext_resource type="Texture2D" uid="uid://cqbyyyu6gxuua" path="res://art/road/car_overworld.png" id="2_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://ce6up3emhd4oi" path="res://level_node.tscn" id="5_gbfbk"]
+[ext_resource type="PackedScene" uid="uid://cuot2qapu8vkp" path="res://char.tscn" id="6_dwbse"]
+[ext_resource type="AudioStream" uid="uid://mupynqnmfsii" path="res://sounds/speed_boost_sfx.wav" id="6_gbfbk"]
+[ext_resource type="AudioStream" uid="uid://cssik3j7wbf4" path="res://sounds/ui sfx/select_button.mp3" id="7_ioo17"]
+[ext_resource type="PackedScene" uid="uid://brtkfmxt57dil" path="res://track-1.tscn" id="7_wse8f"]
+[ext_resource type="AudioStream" uid="uid://dtdl1upyeod0r" path="res://sounds/Menu Racer Finished.mp3" id="8_gbfbk"]
+[ext_resource type="PackedScene" uid="uid://b2ukhc1ubiad5" path="res://track_2.tscn" id="8_ic0uy"]
+[ext_resource type="PackedScene" uid="uid://dlw8yq0a6ibd8" path="res://track_3.tscn" id="9_ic0uy"]
+[ext_resource type="PackedScene" uid="uid://bbes6ljxo022t" path="res://fade.tscn" id="10_k3n1d"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_fj7yv")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+scale = Vector2(10, 10)
+texture = ExtResource("2_tlwt5")
+
+[node name="start_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_gbfbk")
+volume_db = -5.0
+
+[node name="select_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ioo17")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_gbfbk")
+volume_db = -10.0
+autoplay = true
+
+[node name="levels" type="Area2D" parent="."]
+
+[node name="lvl1" parent="levels" instance=ExtResource("5_gbfbk")]
+position = Vector2(-1272, -55)
+scene = ExtResource("7_wse8f")
+
+[node name="lvl2" parent="levels" instance=ExtResource("5_gbfbk")]
+position = Vector2(-794, -57)
+scene = ExtResource("8_ic0uy")
+
+[node name="lvl3" parent="levels" instance=ExtResource("5_gbfbk")]
+position = Vector2(-306, -48)
+scene = ExtResource("9_ic0uy")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("6_dwbse")]
+position = Vector2(-1526, -6)
+scale = Vector2(1, 1)
+
+[node name="Fade" parent="." instance=ExtResource("10_k3n1d")]
